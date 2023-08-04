@@ -1,0 +1,93 @@
+{
+  "project_info": {
+    "project_number": "189312074300",
+    "firebase_url": "https://data-eltogar-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "data-eltogar",
+    "storage_bucket": "data-eltogar.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:189312074300:android:97ed1c6eeddc3e43e3b939",
+        "android_client_info": {
+          "package_name": "com.biteam.dataElTogar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "189312074300-2jik7784gh75fql4eh083hthunmhe8qq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.biteam.dataElTogar",
+            "certificate_hash": "6e1d4e7d35d6d760fe0d2e69e510056531d115d2"
+          }
+        },
+        {
+          "client_id": "189312074300-jd8ccjj5jmbrg67asaqcu8oeg0ueshs7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_3sz3jrYIW-3rplmuxP1sU8elX3dRx0w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "189312074300-jd8ccjj5jmbrg67asaqcu8oeg0ueshs7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:189312074300:android:92576a4876d36b80e3b939",
+        "android_client_info": {
+          "package_name": "com.mohamed_dev.togarquerry"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "189312074300-fo5fv10s6jmbqnfenhqdap7ll1h4hlqs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mohamed_dev.togarquerry",
+            "certificate_hash": "6e1d4e7d35d6d760fe0d2e69e510056531d115d2"
+          }
+        },
+        {
+          "client_id": "189312074300-om2fcdvbs4mq4v3u8fc0d0c3j16205c4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mohamed_dev.togarquerry",
+            "certificate_hash": "baa74b7de5a03931fd4af935ff95421775442281"
+          }
+        },
+        {
+          "client_id": "189312074300-jd8ccjj5jmbrg67asaqcu8oeg0ueshs7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_3sz3jrYIW-3rplmuxP1sU8elX3dRx0w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "189312074300-jd8ccjj5jmbrg67asaqcu8oeg0ueshs7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
