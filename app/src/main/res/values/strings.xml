@@ -1,3 +1,18 @@
 <resources>
-    <string name="app_name">DataElTogar</string>
+    <string name="app_name">Demo Compose App</string>
+    <string name="sign_in">Sign In</string>
+    <string name="login_description">Korem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+    <string name="enter_your_email">Enter Your Email</string>
+    <string name="enter_your_password">Enter Your Password</string>
+    <string name="don_t_have_an_account">Don’t have an account?</string>
+    <string name="welcome">Welcome</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forget_password">Forget Password</string>
+    <string name="or">OR</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="login">Login</string>
+    <string name="create_new_account">Create New Account</string>
+    <string name="fullname">Full Name</string>
+    <string name="mobile_number">Mobile Number</string>
 </resources>

@@ -1,9 +1,6 @@
-@file:OptIn(ExperimentalMaterial3Api::class)
-
 package com.biteam.dataElTogar.presentation.features.authentication
 
 import android.content.res.Configuration
-import android.widget.Space
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -12,14 +9,10 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Button
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -44,28 +37,25 @@ import com.biteam.dataElTogar.presentation.composable.Input
 import com.biteam.dataElTogar.presentation.composable.MainButton
 import com.biteam.dataElTogar.presentation.features.HomeScreen
 import com.biteam.dataElTogar.presentation.theme.black
-import com.biteam.dataElTogar.presentation.theme.bodyMedium
-import com.biteam.dataElTogar.presentation.theme.headlineMedium
 import com.biteam.dataElTogar.presentation.theme.primary
 import com.biteam.dataElTogar.presentation.theme.titleLarge
 import com.biteam.dataElTogar.presentation.theme.titleSmall
 import dev.icerock.moko.mvvm.compose.getViewModel
 import dev.icerock.moko.mvvm.compose.viewModelFactory
 
-object LoginScreen : Screen {
+object RegisterScreen : Screen {
 
     @Composable
     override fun Content() {
-        val productsViewModel = getViewModel(Unit, viewModelFactory { AuthenticationViewModel() })
         val navigator = LocalNavigator.currentOrThrow
-        LoginContent(navigator)
+        RegisterContent(navigator)
 
 
     }
 }
 
 @Composable
-fun LoginContent(navigator: Navigator? = null) {
+fun RegisterContent(navigator: Navigator? = null) {
     LazyColumn(
 
         horizontalAlignment = Alignment.CenterHorizontally
@@ -74,44 +64,54 @@ fun LoginContent(navigator: Navigator? = null) {
 
             Spacer(modifier = Modifier.height(29.dp))
             Text(
-                text = stringResource(R.string.welcome),
+                text = stringResource(R.string.create_new_account),
                 style = titleLarge
             )
 
-            Spacer(modifier = Modifier.height(42.dp))
+            Spacer(modifier = Modifier.height(37.dp))
             Column(horizontalAlignment = Alignment.Start, modifier = Modifier.padding(24.dp)) {
-                Text(
-                    text = stringResource(R.string.sign_in),
-                    style = headlineMedium
-                )
 
-                Spacer(modifier = Modifier.height(25.dp))
-                Text(
-                    text = stringResource(R.string.login_description),
-                    style = bodyMedium,
-                    textAlign = TextAlign.Start
-                )
-
-                Spacer(modifier = Modifier.height(62.dp))
-                Input(title = stringResource(R.string.email), value = "", hint = stringResource(R.string.enter_your_email)) {
+                Input(
+                    title = stringResource(R.string.fullname),
+                    value = "",
+                    hint = stringResource(R.string.enter_your_email)
+                ) {
                 }
 
-                Spacer(modifier = Modifier.height(26.dp))
-                Input(title = stringResource(R.string.password), value = "", hint = stringResource(R.string.enter_your_password)) {
+                Spacer(modifier = Modifier.height(20.dp))
+                Input(
+                    title = stringResource(R.string.email),
+                    value = "",
+                    hint = stringResource(R.string.enter_your_email)
+                ) {
                 }
 
-                Spacer(modifier = Modifier.height(16.dp))
-                Text(
-                    text = stringResource(R.string.forget_password),
-                    style = titleSmall,
-                    modifier = Modifier.fillMaxWidth(),
-                    textAlign = TextAlign.Start
-                )
+                Spacer(modifier = Modifier.height(20.dp))
+                Input(
+                    title = stringResource(R.string.password),
+                    value = "",
+                    hint = stringResource(R.string.enter_your_password)
+                ) {
+                }
 
-                Spacer(modifier = Modifier.height(10.dp))
-                MainButton(title = stringResource(R.string.login)) {
+                Spacer(modifier = Modifier.height(20.dp))
+                Input(
+                    title = stringResource(R.string.mobile_number),
+                    value = "",
+                    hint = stringResource(R.string.enter_your_password)
+                ) {
+                }
+
+
+
+                Spacer(modifier = Modifier.height(30.dp))
+                MainButton(title = stringResource(R.string.sign_up)) {
                     navigator?.push(HomeScreen)
                 }
+
+                Spacer(modifier = Modifier.height(10.dp))
+
+
 
                 Spacer(modifier = Modifier.height(29.dp))
                 Text(
@@ -127,7 +127,11 @@ fun LoginContent(navigator: Navigator? = null) {
                 )
 
                 Spacer(modifier = Modifier.height(19.dp))
-                Row(horizontalArrangement =Arrangement.Center, modifier = Modifier.fillMaxWidth()) {
+
+                Row(
+                    horizontalArrangement = Arrangement.Center,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
                     Image(
                         painter = painterResource(id = R.drawable.facebook_icon),
                         contentDescription = "facebook_icon",
@@ -137,7 +141,6 @@ fun LoginContent(navigator: Navigator? = null) {
                             .width(40.dp)
                             .height(40.dp)
                     )
-
                     Spacer(modifier = Modifier.width(30.dp))
                     Image(
                         painter = painterResource(id = R.drawable.google_icon),
@@ -152,7 +155,12 @@ fun LoginContent(navigator: Navigator? = null) {
 
 
                 Spacer(modifier = Modifier.height(10.dp))
-                Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+
+
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
                     Text(
                         text = stringResource(R.string.don_t_have_an_account),
                         style = TextStyle(
@@ -162,15 +170,16 @@ fun LoginContent(navigator: Navigator? = null) {
                         )
                     )
                     TextButton(onClick = {
-                        navigator?.push(RegisterScreen)
+                        navigator?.push(LoginScreen)
                     }) {
                         Text(
-                            text = stringResource(R.string.sign_up),
+                            text = stringResource(R.string.sign_in),
                             style = TextStyle(
                                 fontSize = 16.sp,
                                 fontWeight = FontWeight(600),
                                 color = primary,
-                        ))
+                            )
+                        )
                     }
                 }
 
@@ -199,6 +208,6 @@ fun LoginContent(navigator: Navigator? = null) {
     uiMode = Configuration.UI_MODE_NIGHT_YES
 )
 @Composable
-fun LoginPreview() {
-    LoginContent()
+fun RegisterPreview() {
+    RegisterContent()
 }

@@ -2,10 +2,11 @@ package com.biteam.dataElTogar.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple80 = Color(0xFFD0BCFF)
-val PurpleGrey80 = Color(0xFFCCC2DC)
-val Pink80 = Color(0xFFEFB8C8)
+val primary = Color(0xFF0B8FAC)
+val secondary = Color(0xFF7BC1B7)
+val tertiary = Color(0xFFD2EBE7)
 
-val Purple40 = Color(0xFF6650a4)
-val PurpleGrey40 = Color(0xFF625b71)
-val Pink40 = Color(0xFF7D5260)
+val green = Color(0xFF129820)
+val black = Color(0xFF000000)
+val red = Color(0xFFF30000)
+val orange = Color(0xFFF89603)

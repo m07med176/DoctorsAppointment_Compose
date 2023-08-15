@@ -14,22 +14,14 @@ targetSdk = "33"
 
 koin-version = "3.4.2"
 koin-compose-version = "3.4.2"
-
 ktor_version = "2.3.2"
 kotlin-serialization = "1.5.1"
 multiplatform-placeholder = "0.30.1"
-
 material-icon-version = "1.4.1"
-
 image-loader-version = "1.5.3"
-
 accompanist-version = "0.25.2"
-
 voyager-version = "1.0.0-rc06"
 moko-version = "0.16.1"
-
-
-
 koin-compose-jb = "1.0.3"
 youtube-player-android = "12.1.0"
 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sign_in">تسجيل الدخول</string>
+    <string name="login_description">وريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور  أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم فينايم,كيواس نوستريد  أكسير سيتاشن يللأمكو لابورأس نيسي يت أليكيوب أكس أيا كوممودو كونسيكيوات</string>
+    <string name="app_name">شرح الكمبوز</string>
+    <string name="enter_your_email">أدخل إيميلك</string>
+    <string name="enter_your_password">أدخل الباسورد</string>
+    <string name="don_t_have_an_account">هل لديك حساب؟</string>
+    <string name="welcome">أهلاً</string>
+    <string name="email">إيميل</string>
+    <string name="password">باسورد</string>
+    <string name="forget_password">نسيت كلمة السر</string>
+    <string name="or">أو</string>
+    <string name="sign_up">قم بالدخول</string>
+    <string name="login">دخول</string>
+    <string name="create_new_account">أنشىء حساب جديد</string>
+    <string name="fullname">الإسم بالكامل</string>
+    <string name="mobile_number">رقم التليفون</string>
+</resources>
