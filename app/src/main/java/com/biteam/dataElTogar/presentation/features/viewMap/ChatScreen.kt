@@ -3,8 +3,6 @@ package com.biteam.dataElTogar.presentation.features.viewMap
 import android.util.Log
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
@@ -13,7 +11,7 @@ import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions
 
 
-object ViewMapScreen:Tab{
+object ChatScreen:Tab{
 
     override val options: TabOptions
         @Composable
@@ -23,7 +21,7 @@ object ViewMapScreen:Tab{
             return remember {
                 TabOptions(
                     index = 0u,
-                    title = "Map Togar",
+                    title = "Chat",
                     icon = icon
                 )
             }

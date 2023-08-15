@@ -1,8 +1,7 @@
-package com.biteam.dataElTogar.presentation.features.searchData
+package com.biteam.dataElTogar.presentation.features.appointment
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.List
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -10,18 +9,17 @@ import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions
 
-
-object SearchDataScreen: Tab {
+object AppointmentScreen: Tab {
 
     override val options: TabOptions
         @Composable
         get(){
-            val icon = rememberVectorPainter(Icons.Default.Search)
+            val icon = rememberVectorPainter(Icons.Default.List)
 
             return remember {
                 TabOptions(
-                    index = 3u,
-                    title = "Search Togar",
+                    index = 0u,
+                    title = "Appointment",
                     icon = icon
                 )
             }

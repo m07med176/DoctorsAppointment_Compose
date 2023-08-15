@@ -13,7 +13,6 @@ import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.runtime.Composable
@@ -33,10 +32,10 @@ import cafe.adriel.voyager.navigator.tab.LocalTabNavigator
 import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabNavigator
 import com.biteam.dataElTogar.presentation.features.areasManagement.AreasScreen
-import com.biteam.dataElTogar.presentation.features.insertData.InsertDataScreen
-import com.biteam.dataElTogar.presentation.features.searchData.SearchDataScreen
-import com.biteam.dataElTogar.presentation.features.viewData.ViewDataScreen
-import com.biteam.dataElTogar.presentation.features.viewMap.ViewMapScreen
+import com.biteam.dataElTogar.presentation.features.dashboard.DashboardScreen
+import com.biteam.dataElTogar.presentation.features.profile.ProfileScreen
+import com.biteam.dataElTogar.presentation.features.appointment.AppointmentScreen
+import com.biteam.dataElTogar.presentation.features.viewMap.ChatScreen
 
 object HomeScreen :Screen{
     @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
@@ -44,24 +43,24 @@ object HomeScreen :Screen{
     override fun Content() {
         val navigator = LocalNavigator.currentOrThrow
         TabNavigator(
-            InsertDataScreen
+            DashboardScreen
         ) { tabNavigator ->
             Scaffold(
-                topBar = {
-                    TopAppBar(
-                        title = { Text(text = tabNavigator.current.options.title) },
-                        actions = { AppDropMenu(navigator) }
-                    )
-                },
+//                topBar = {
+//                    TopAppBar(
+//                        title = { Text(text = tabNavigator.current.options.title) },
+//                        actions = { AppDropMenu(navigator) }
+//                    )
+//                },
                 content = {
                     CurrentTab()
                 },
                 bottomBar = {
                     BottomNavigation {
-                        TabNavigationItem(InsertDataScreen)
-                        TabNavigationItem(ViewDataScreen)
-                        TabNavigationItem(ViewMapScreen)
-                        TabNavigationItem(SearchDataScreen)
+                        TabNavigationItem(DashboardScreen)
+                        TabNavigationItem(AppointmentScreen)
+                        TabNavigationItem(ChatScreen)
+                        TabNavigationItem(ProfileScreen)
                     }
                 }
             )
