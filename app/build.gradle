@@ -87,32 +87,24 @@ dependencies {
     implementation 'com.squareup.sqldelight:coroutines-extensions:1.5.5'
     implementation 'org.jetbrains.kotlinx:kotlinx-datetime:0.4.0'
 
-    // MVVM Staff : https://github.com/icerockdev/moko-mvvm
-    implementation 'dev.icerock.moko:mvvm-core:0.16.1'
-    implementation 'dev.icerock.moko:mvvm-compose:0.16.1'
+    // MVVM
+    implementation(libs.moko.core)
+    implementation(libs.moko.compose)
 
-    // Ktor Staff : https://ktor.io/docs/getting-started-ktor-client.html#create-client
-    def ktorVersion = "2.3.1"
-    implementation "io.ktor:ktor-client-core:$ktorVersion"
-    implementation "io.ktor:ktor-client-content-negotiation:$ktorVersion"
-    implementation "io.ktor:ktor-serialization-kotlinx-json:$ktorVersion"
-    implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1'
-    implementation "io.ktor:ktor-client-logging:$ktorVersion"
-    implementation "io.ktor:ktor-client-okhttp:$ktorVersion"
+    // Voyager
+    implementation(libs.voyager.navigator)
+    implementation(libs.voyager.transitions)
+    implementation(libs.voyager.tabNavigator)
+    implementation(libs.voyager.bottomSheetNavigator)
 
-    // Navigation Staff: https://voyager.adriel.cafe/setup
-    def voyagerVersion = "1.0.0-rc05"
-    // Navigator
-    implementation("cafe.adriel.voyager:voyager-navigator:$voyagerVersion")
-
-    // BottomSheetNavigator
-    implementation("cafe.adriel.voyager:voyager-bottom-sheet-navigator:$voyagerVersion")
-
-    // TabNavigator
-    implementation("cafe.adriel.voyager:voyager-tab-navigator:$voyagerVersion")
-
-    // Transitions
-    implementation("cafe.adriel.voyager:voyager-transitions:$voyagerVersion")
-
+    // Ktor
+    implementation(libs.ktor.core)
+    implementation(libs.ktor.json)
+    implementation(libs.ktor.engin.okhttp)
+    implementation(libs.ktor.serialization)
+    implementation(libs.ktor.client.logging)
+    implementation(libs.kotlin.serialization)
+    implementation(libs.ktor.contentnegotiation)
+    implementation(libs.ktor.serialization.json)
 
 }
