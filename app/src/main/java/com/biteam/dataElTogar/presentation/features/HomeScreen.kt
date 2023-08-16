@@ -28,14 +28,10 @@ import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import cafe.adriel.voyager.navigator.tab.CurrentTab
-import cafe.adriel.voyager.navigator.tab.LocalTabNavigator
-import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabNavigator
+import com.biteam.dataElTogar.presentation.composable.ButtonNavigation
 import com.biteam.dataElTogar.presentation.features.areasManagement.AreasScreen
 import com.biteam.dataElTogar.presentation.features.dashboard.DashboardScreen
-import com.biteam.dataElTogar.presentation.features.profile.ProfileScreen
-import com.biteam.dataElTogar.presentation.features.appointment.AppointmentScreen
-import com.biteam.dataElTogar.presentation.features.viewMap.ChatScreen
 
 object HomeScreen :Screen{
     @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
@@ -56,31 +52,13 @@ object HomeScreen :Screen{
                     CurrentTab()
                 },
                 bottomBar = {
-                    BottomNavigation {
-                        TabNavigationItem(DashboardScreen)
-                        TabNavigationItem(AppointmentScreen)
-                        TabNavigationItem(ChatScreen)
-                        TabNavigationItem(ProfileScreen)
-                    }
+                    ButtonNavigation()
                 }
             )
         }
-
-
-
     }
 }
 
-@Composable
-private fun RowScope.TabNavigationItem(tab: Tab) {
-    val tabNavigator = LocalTabNavigator.current
-
-    BottomNavigationItem(
-        selected = tabNavigator.current.key == tab.key,
-        onClick = { tabNavigator.current = tab },
-        icon = { Icon(painter = tab.options.icon!!, contentDescription = tab.options.title) }
-    )
-}
 
 @Composable
 private fun AppDropMenu(navigator: Navigator) {

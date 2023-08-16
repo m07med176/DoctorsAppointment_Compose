@@ -6,20 +6,22 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
+import androidx.compose.ui.res.painterResource
 import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions
+import com.biteam.dataElTogar.R
 
 object AppointmentScreen: Tab {
 
     override val options: TabOptions
         @Composable
         get(){
-            val icon = rememberVectorPainter(Icons.Default.List)
+            val icon = painterResource(id = R.drawable.appointment_tap)
 
             return remember {
                 TabOptions(
                     index = 0u,
-                    title = "Appointment",
+                    title = "Booking",
                     icon = icon
                 )
             }
