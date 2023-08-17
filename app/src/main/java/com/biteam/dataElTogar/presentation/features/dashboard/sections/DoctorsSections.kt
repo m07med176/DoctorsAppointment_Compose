@@ -45,17 +45,18 @@ import com.biteam.dataElTogar.R
 import com.biteam.dataElTogar.presentation.composable.SmallButton
 import com.biteam.dataElTogar.presentation.composable.TextBody2
 import com.biteam.dataElTogar.presentation.composable.TextHead3
+import com.biteam.dataElTogar.presentation.features.dashboard.listContent.LazyDoctorItems
 import com.biteam.dataElTogar.presentation.theme.SystemColor
 import com.biteam.dataElTogar.presentation.theme.bodyMedium
 import com.biteam.dataElTogar.presentation.theme.headlineSmall
 
 @Composable
-fun DoctorsSection() {
+fun DoctorsSection(seeAllDoctors:()-> Unit) {
         Spacer(modifier = Modifier.height(35.dp))
         Row {
             Text(text = "All Doctors", style = headlineSmall)
             Spacer(modifier = Modifier.weight(1f))
-            TextButton(onClick = {}) {
+            TextButton(onClick = {seeAllDoctors()}) {
                 Text(
                     text = "See All", style = bodyMedium, textAlign = TextAlign.Start
                 )
@@ -65,119 +66,8 @@ fun DoctorsSection() {
         }
 
         Spacer(modifier = Modifier.height(28.dp))
-        var itemsData: MutableList<DoctorModel> = mutableListOf<DoctorModel>().apply {
-            repeat(10) {
-                add(
-                    DoctorModel(
-                        name = "Dr.DoctorName$it"
-                    )
-                )
-            }
-        }
 
-        LazyColumn(modifier = Modifier.height(300.dp)){
-            items(itemsData){
-                DoctorItemCard(it)
-            }
-        }
+        LazyDoctorItems()
 
 }
 
-
-@Composable
-fun DoctorItemCard(item: DoctorModel) {
-    var changeFavorite by remember {
-        mutableStateOf(false)
-    }
-
-    Card(modifier = Modifier.height(255.dp).padding(bottom = 25.dp), shape = RoundedCornerShape(size = 10.dp)) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .wrapContentHeight()
-                .background(
-                    color = Color(0x4DD2EBE7)
-                )
-                .padding(start = 16.dp, end = 16.dp)
-        ) {
-
-            Column(
-                modifier = Modifier
-                    .fillMaxHeight()
-                    .width(138.dp)
-                    .padding(start = 14.dp, end = 25.dp)
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.doctor_image),
-                    contentDescription = "image description",
-                    contentScale = ContentScale.FillBounds,
-                    modifier = Modifier.fillMaxSize()
-                )
-
-            }
-
-            Column(
-                modifier = Modifier
-                    .fillMaxHeight()
-            ) {
-                Spacer(modifier = Modifier.height(26.dp))
-
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    TextHead3(text = item.name)
-                    Spacer(modifier = Modifier.weight(1f))
-                    IconToggleButton(checked = changeFavorite,
-                        onCheckedChange = { changeFavorite = !changeFavorite }) {
-                        Icon(
-                            imageVector = if (changeFavorite) Icons.Outlined.Favorite else Icons.Default.Favorite,
-                            contentDescription = null
-                        )
-                    }
-                }
-
-                Spacer(modifier = Modifier.height(18.dp))
-                TextBody2(text = item.description)
-
-                Spacer(modifier = Modifier.height(20.dp))
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    SmallButton(
-                        title = "Book", modifier = Modifier
-                            .height(40.dp)
-                    ) {
-
-                    }
-
-                    Spacer(modifier = Modifier.weight(1f))
-                    Icon(
-                        painter = painterResource(id = R.drawable.star_icon),
-                        modifier = Modifier
-                            .size(20.dp)
-                            .padding(end = 6.dp),
-                        contentDescription = null,
-                        tint = SystemColor.orange
-                    )
-                    TextHead3(text = item.rate.toString())
-                }
-            }
-        }
-
-    }
-
-}
-
-data class DoctorModel(
-    val name: String = "Mohamed",
-    val description: String = "Jorem ipsum dolor, consectetur adipiscing elit. Nunc v libero et velit interdum, ac mattis.",
-    val rate: Float = 5f,
-    val saved: Boolean = false
-)
-
-@Preview(
-    name = "English", locale = "en", uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true
-)
-@Composable
-fun DoctorItemCardPreview() {
-    Box(modifier = Modifier.height(250.dp)) {
-        DoctorItemCard(DoctorModel())
-    }
-
-}

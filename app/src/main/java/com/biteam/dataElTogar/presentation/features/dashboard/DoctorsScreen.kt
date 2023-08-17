@@ -1,79 +1,92 @@
 package com.biteam.dataElTogar.presentation.features.dashboard
 
+import android.annotation.SuppressLint
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
+import androidx.compose.material.Scaffold
+import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.navigator.currentOrThrow
-import cafe.adriel.voyager.navigator.tab.Tab
-import cafe.adriel.voyager.navigator.tab.TabOptions
 import com.biteam.dataElTogar.R
-import com.biteam.dataElTogar.presentation.composable.NAVIGATION_HEIGHT
-import com.biteam.dataElTogar.presentation.features.dashboard.sections.AdsSection
-import com.biteam.dataElTogar.presentation.features.dashboard.sections.CategorySection
-import com.biteam.dataElTogar.presentation.features.dashboard.sections.DoctorsSection
+import com.biteam.dataElTogar.presentation.composable.TextHead1
+import com.biteam.dataElTogar.presentation.features.authentication.LoginContent
+import com.biteam.dataElTogar.presentation.features.dashboard.listContent.LazyDoctorItems
 import com.biteam.dataElTogar.presentation.features.dashboard.sections.SearchSection
-import com.biteam.dataElTogar.presentation.features.dashboard.sections.TopSection
 
 
-object DashboardScreen : Tab {
-
-    override val options: TabOptions
-        @Composable
-        get() {
-            val icon = painterResource(id = R.drawable.home_tap)
-
-            return remember {
-                TabOptions(
-                    index = 0u,
-                    title = "Home",
-                    icon = icon
-                )
-            }
-        }
-
+object DoctorsScreen : Screen {
     @Composable
     override fun Content() {
         val navigator = LocalNavigator.currentOrThrow
-        DashboardContent(navigator)
+        LoginContent(navigator)
     }
 }
 
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun DashboardContent(navigator: Navigator? = null) {
+fun DoctorsContent(navigator: Navigator? = null) {
+    Scaffold(topBar = {
+        TopAppBar(
+            backgroundColor = Color.Transparent,
+            elevation = 0.dp
+        ) {
+
+            IconButton(onClick = { }) {
+                Icon(
+                    modifier = Modifier.size(20.dp),
+                    painter = painterResource(id = R.drawable.back_icon),
+                    contentDescription = null
+                )
+            }
+
+            Box(modifier = Modifier.weight(1f), contentAlignment = Alignment.Center) {
+                TextHead1(text = "All Doctors")
+            }
+
+
+        }
+    })
+    {
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(start = 26.dp, end = 26.dp).verticalScroll(rememberScrollState()),
+                .padding(start = 26.dp, end = 26.dp)
+                .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            TopSection()
+
+            Spacer(modifier = Modifier.height(21.dp))
             SearchSection()
-            AdsSection()
-            CategorySection()
-            DoctorsSection {
-                navigator?.parent?.push(DoctorsScreen)
-            }
-           Spacer(modifier = Modifier.height(NAVIGATION_HEIGHT))
+            Spacer(modifier = Modifier.height(30.dp))
+            LazyDoctorItems()
+
         }
+    }
+
 }
 
 @Preview(
@@ -92,8 +105,7 @@ fun DashboardContent(navigator: Navigator? = null) {
     device = Devices.PIXEL_3A_XL,
     uiMode = Configuration.UI_MODE_NIGHT_YES
 )
-
 @Composable
-fun DashboardPreview() {
-    DashboardContent()
+fun DoctorsPreview() {
+    DoctorsContent()
 }

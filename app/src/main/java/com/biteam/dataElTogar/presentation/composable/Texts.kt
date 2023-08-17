@@ -4,9 +4,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import com.biteam.dataElTogar.R
+import com.biteam.dataElTogar.presentation.theme.titleLarge
 import org.w3c.dom.Text
 
 val styleBody3 = TextStyle(
@@ -40,5 +43,13 @@ fun TextHead3(text:String,modifier: Modifier = Modifier) {
         text = text,
         style = styleHead3,
         modifier = modifier
+    )
+}
+
+@Composable
+fun TextHead1(text:String,modifier: Modifier = Modifier) {
+    Text(
+        text = text,
+        style = titleLarge
     )
 }

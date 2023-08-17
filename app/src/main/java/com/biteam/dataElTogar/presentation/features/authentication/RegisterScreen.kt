@@ -35,6 +35,7 @@ import cafe.adriel.voyager.navigator.currentOrThrow
 import com.biteam.dataElTogar.R
 import com.biteam.dataElTogar.presentation.composable.Input
 import com.biteam.dataElTogar.presentation.composable.MainButton
+import com.biteam.dataElTogar.presentation.composable.TextHead1
 import com.biteam.dataElTogar.presentation.features.HomeScreen
 import com.biteam.dataElTogar.presentation.theme.black
 import com.biteam.dataElTogar.presentation.theme.primary
@@ -63,10 +64,7 @@ fun RegisterContent(navigator: Navigator? = null) {
         item {
 
             Spacer(modifier = Modifier.height(29.dp))
-            Text(
-                text = stringResource(R.string.create_new_account),
-                style = titleLarge
-            )
+            TextHead1(text = stringResource(R.string.create_new_account))
 
             Spacer(modifier = Modifier.height(37.dp))
             Column(horizontalAlignment = Alignment.Start, modifier = Modifier.padding(24.dp)) {

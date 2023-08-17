@@ -42,6 +42,7 @@ import cafe.adriel.voyager.navigator.currentOrThrow
 import com.biteam.dataElTogar.R
 import com.biteam.dataElTogar.presentation.composable.Input
 import com.biteam.dataElTogar.presentation.composable.MainButton
+import com.biteam.dataElTogar.presentation.composable.TextHead1
 import com.biteam.dataElTogar.presentation.features.HomeScreen
 import com.biteam.dataElTogar.presentation.theme.black
 import com.biteam.dataElTogar.presentation.theme.bodyMedium
@@ -73,10 +74,7 @@ fun LoginContent(navigator: Navigator? = null) {
         item {
 
             Spacer(modifier = Modifier.height(29.dp))
-            Text(
-                text = stringResource(R.string.welcome),
-                style = titleLarge
-            )
+            TextHead1(text = stringResource(R.string.welcome))
 
             Spacer(modifier = Modifier.height(42.dp))
             Column(horizontalAlignment = Alignment.Start, modifier = Modifier.padding(24.dp)) {
