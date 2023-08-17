@@ -105,7 +105,7 @@ fun RegisterContent(navigator: Navigator? = null) {
 
 
                 Spacer(modifier = Modifier.height(30.dp))
-                MainButton(title = stringResource(R.string.sign_up)) {
+                MainButton(title = stringResource(R.string.sign_up), modifier = Modifier.fillMaxWidth()) {
                     navigator?.push(HomeScreen)
                 }
 

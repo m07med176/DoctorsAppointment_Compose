@@ -12,6 +12,7 @@ compileSdk = "33"
 minSdk = "24"
 targetSdk = "33"
 
+#accompanist-version = "0.31.6-rc"
 koin-version = "3.4.2"
 koin-compose-version = "3.4.2"
 ktor_version = "2.3.2"
@@ -71,5 +72,8 @@ voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.
 voyager-transitions = { module = "cafe.adriel.voyager:voyager-transitions", version.ref = "voyager-version" }
 voyager-tabNavigator = { module = "cafe.adriel.voyager:voyager-tab-navigator", version.ref = "voyager-version" }
 voyager-bottomSheetNavigator = { module = "cafe.adriel.voyager:voyager-bottom-sheet-navigator", version.ref = "voyager-version" }
+
+# Accompanist Staff: https://github.com/google/accompanist/tree/main
+#accompanist-pager = { module = "com.google.accompanist:accompanist-pager", version.ref = "accompanist-version" }
 
 junit = "junit:junit:4.13.2"

@@ -109,7 +109,10 @@ fun LoginContent(navigator: Navigator? = null) {
                 )
 
                 Spacer(modifier = Modifier.height(10.dp))
-                MainButton(title = stringResource(R.string.login)) {
+                MainButton(
+                    title = stringResource(R.string.login),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
                     navigator?.push(HomeScreen)
                 }
 

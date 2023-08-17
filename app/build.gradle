@@ -8,12 +8,12 @@ plugins {
 
 android {
     namespace 'com.biteam.dataElTogar'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.biteam.dataElTogar"
         minSdk 24
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -106,5 +106,9 @@ dependencies {
     implementation(libs.kotlin.serialization)
     implementation(libs.ktor.contentnegotiation)
     implementation(libs.ktor.serialization.json)
+
+    // Accompanist
+    implementation 'com.google.accompanist:accompanist-pager:0.31.6-rc'
+
 
 }

@@ -8,23 +8,45 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.biteam.dataElTogar.presentation.MainActivity
-import com.biteam.dataElTogar.presentation.features.HomeScreen
+import androidx.compose.ui.unit.sp
 import com.biteam.dataElTogar.presentation.theme.primary
 
 
 @Composable
-fun MainButton(title:String,onClick:()->Unit) {
+fun MainButton(title:String,modifier: Modifier = Modifier,onClick:()->Unit) {
     Button(
         onClick = {
             onClick()
         },
         shape = RoundedCornerShape(size = 10.dp),
-        modifier = Modifier.fillMaxWidth(),
+        modifier = modifier,
         contentPadding = PaddingValues(16.dp),
         colors = ButtonDefaults.buttonColors(containerColor = primary),
     ) {
         Text(text = title)
+    }
+}
+
+@Composable
+fun SmallButton(title:String,modifier: Modifier = Modifier,onClick:()->Unit) {
+    Button(
+        onClick = {
+            onClick()
+        },
+        shape = RoundedCornerShape(size = 20.dp),
+        modifier = modifier,
+        colors = ButtonDefaults.buttonColors(containerColor = primary),
+    ) {
+        Text(text = title, style = TextStyle(
+            fontSize = 16.sp,
+            lineHeight = 16.sp,
+            fontWeight = FontWeight(400),
+            color = Color.White,
+        )
+        )
     }
 }

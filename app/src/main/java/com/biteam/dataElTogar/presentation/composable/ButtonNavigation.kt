@@ -38,13 +38,15 @@ import com.biteam.dataElTogar.presentation.features.dashboard.DashboardScreen
 import com.biteam.dataElTogar.presentation.features.profile.ProfileScreen
 import com.biteam.dataElTogar.presentation.theme.primary
 
+val NAVIGATION_HEIGHT = 83.dp
+
 @Composable
 fun ButtonNavigation() {
     BottomNavigation(
         backgroundColor = Color.White,
         modifier = Modifier
             .fillMaxWidth()
-            .height(83.dp)
+            .height(NAVIGATION_HEIGHT)
     ) {
         TabNavigationItem(DashboardScreen)
         TabNavigationItem(AppointmentScreen)
