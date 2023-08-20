@@ -4,13 +4,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
-import com.biteam.dataElTogar.R
 import com.biteam.dataElTogar.presentation.theme.titleLarge
-import org.w3c.dom.Text
+import com.biteam.dataElTogar.presentation.theme.titleSmall
 
 val styleBody3 = TextStyle(
     fontSize = 14.sp,
@@ -29,7 +28,7 @@ val styleHead3 = TextStyle(
 )
 
 @Composable
-fun TextBody2(text: String,modifier: Modifier = Modifier) {
+fun TextBody2(text: String, modifier: Modifier = Modifier) {
     Text(
         text = text,
         style = styleBody3,
@@ -38,16 +37,28 @@ fun TextBody2(text: String,modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun TextHead3(text:String,modifier: Modifier = Modifier) {
+fun TextHead3(text: String, modifier: Modifier = Modifier,color:Color = Color.Black) {
     Text(
         text = text,
         style = styleHead3,
-        modifier = modifier
+        modifier = modifier,
+        color = color
     )
 }
 
 @Composable
-fun TextHead1(text:String,modifier: Modifier = Modifier) {
+fun TextHead4(text: String, modifier: Modifier = Modifier, color: Color = Color.Black) {
+    Text(
+        text = text,
+        style = titleSmall,
+        modifier = modifier,
+        textAlign = TextAlign.Start,
+        color = color
+    )
+}
+
+@Composable
+fun TextHead1(text: String, modifier: Modifier = Modifier) {
     Text(
         text = text,
         style = titleLarge

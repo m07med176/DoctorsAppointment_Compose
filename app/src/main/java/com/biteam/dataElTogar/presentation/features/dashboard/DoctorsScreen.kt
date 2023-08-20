@@ -26,48 +26,53 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
-import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import com.biteam.dataElTogar.R
 import com.biteam.dataElTogar.presentation.composable.TextHead1
-import com.biteam.dataElTogar.presentation.features.authentication.LoginContent
 import com.biteam.dataElTogar.presentation.features.dashboard.listContent.LazyDoctorItems
 import com.biteam.dataElTogar.presentation.features.dashboard.sections.SearchSection
+import com.biteam.dataElTogar.presentation.utils.ClickBookItem
+import com.biteam.dataElTogar.presentation.utils.SimpleClick
 
 
 object DoctorsScreen : Screen {
     @Composable
     override fun Content() {
         val navigator = LocalNavigator.currentOrThrow
-        LoginContent(navigator)
+        DoctorsContent(
+            onClickBackBtn = { navigator.pop() },
+            onClickDoctorModel = {
+                navigator.parent?.push(DoctorDetailsScreen(it))
+        })
     }
 }
 
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun DoctorsContent(navigator: Navigator? = null) {
-    Scaffold(topBar = {
-        TopAppBar(
-            backgroundColor = Color.Transparent,
-            elevation = 0.dp
-        ) {
+fun DoctorsContent(onClickBackBtn: SimpleClick, onClickDoctorModel: ClickBookItem) {
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                backgroundColor = Color.Transparent,
+                elevation = 0.dp
+            ) {
 
-            IconButton(onClick = { }) {
-                Icon(
-                    modifier = Modifier.size(20.dp),
-                    painter = painterResource(id = R.drawable.back_icon),
-                    contentDescription = null
-                )
+                IconButton(onClick = { onClickBackBtn() }) {
+                    Icon(
+                        modifier = Modifier.size(20.dp),
+                        painter = painterResource(id = R.drawable.back_icon),
+                        contentDescription = null
+                    )
+                }
+
+                Box(modifier = Modifier.weight(1f), contentAlignment = Alignment.Center) {
+                    TextHead1(text = "All Doctors")
+                }
+
+
             }
-
-            Box(modifier = Modifier.weight(1f), contentAlignment = Alignment.Center) {
-                TextHead1(text = "All Doctors")
-            }
-
-
-        }
-    })
+        })
     {
 
         Column(
@@ -82,7 +87,7 @@ fun DoctorsContent(navigator: Navigator? = null) {
             Spacer(modifier = Modifier.height(21.dp))
             SearchSection()
             Spacer(modifier = Modifier.height(30.dp))
-            LazyDoctorItems()
+            LazyDoctorItems(modifier = Modifier.weight(1f), onClickBookItem = onClickDoctorModel)
 
         }
     }
@@ -107,5 +112,5 @@ fun DoctorsContent(navigator: Navigator? = null) {
 )
 @Composable
 fun DoctorsPreview() {
-    DoctorsContent()
+    DoctorsContent(onClickBackBtn = {}, onClickDoctorModel = {})
 }

@@ -14,14 +14,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.biteam.dataElTogar.presentation.theme.primary
+import com.biteam.dataElTogar.presentation.utils.SimpleClick
 
 
 @Composable
-fun MainButton(title:String,modifier: Modifier = Modifier,onClick:()->Unit) {
+fun MainButton(title:String,modifier: Modifier = Modifier,onClick:SimpleClick) {
     Button(
-        onClick = {
-            onClick()
-        },
+        onClick = onClick,
         shape = RoundedCornerShape(size = 10.dp),
         modifier = modifier,
         contentPadding = PaddingValues(16.dp),
@@ -32,11 +31,9 @@ fun MainButton(title:String,modifier: Modifier = Modifier,onClick:()->Unit) {
 }
 
 @Composable
-fun SmallButton(title:String,modifier: Modifier = Modifier,onClick:()->Unit) {
+fun SmallButton(title:String,modifier: Modifier = Modifier,onClick:SimpleClick) {
     Button(
-        onClick = {
-            onClick()
-        },
+        onClick = onClick,
         shape = RoundedCornerShape(size = 20.dp),
         modifier = modifier,
         colors = ButtonDefaults.buttonColors(containerColor = primary),

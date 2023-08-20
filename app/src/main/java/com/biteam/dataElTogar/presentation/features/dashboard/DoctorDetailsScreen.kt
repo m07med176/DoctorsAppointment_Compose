@@ -26,38 +26,69 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
-import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import com.biteam.dataElTogar.R
 import com.biteam.dataElTogar.presentation.composable.TextHead1
-import com.biteam.dataElTogar.presentation.features.authentication.LoginContent
-import com.biteam.dataElTogar.presentation.features.dashboard.listContent.LazyDoctorItems
+import com.biteam.dataElTogar.presentation.features.dashboard.listContent.DoctorModel
 import com.biteam.dataElTogar.presentation.features.dashboard.sections.DatePicSection
 import com.biteam.dataElTogar.presentation.features.dashboard.sections.DetailsDoctorSection
 import com.biteam.dataElTogar.presentation.features.dashboard.sections.DoctorContactSection
-import com.biteam.dataElTogar.presentation.features.dashboard.sections.SearchSection
 import com.biteam.dataElTogar.presentation.features.dashboard.sections.WorkerHoursSection
+import com.biteam.dataElTogar.presentation.utils.SimpleClick
+
+data class DoctorDetailsScreenActions(
+    val onBackClick: SimpleClick,
+    val onClickChat: SimpleClick,
+    val onClickVideoCall: SimpleClick,
+    val onClickVoiceCall: SimpleClick
+)
+
+data class DoctorDetailsScreen(private val doctorModel: DoctorModel) : Screen {
 
 
-object DoctorDetailsScreen : Screen {
     @Composable
     override fun Content() {
         val navigator = LocalNavigator.currentOrThrow
-        LoginContent(navigator)
+
+        val actions = DoctorDetailsScreenActions(
+            onClickVoiceCall = ::onClickVoiceCall,
+            onClickVideoCall = ::onClickVideoCall,
+            onClickChat = ::onClickChat,
+            onBackClick = {
+                navigator.pop()
+            }
+        )
+
+        DoctorDetailsContent(actions)
     }
+
+    private fun onClickVoiceCall() {
+
+    }
+    private fun onClickVideoCall() {
+
+    }
+    private fun onClickChat() {
+
+    }
+
+
+
+
+
 }
 
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun DoctorDetailsContent(navigator: Navigator? = null) {
+fun DoctorDetailsContent(actions: DoctorDetailsScreenActions) {
     Scaffold(topBar = {
         TopAppBar(
             backgroundColor = Color.Transparent,
             elevation = 0.dp
         ) {
 
-            IconButton(onClick = { }) {
+            IconButton(onClick = actions.onBackClick) {
                 Icon(
                     modifier = Modifier.size(20.dp),
                     painter = painterResource(id = R.drawable.back_icon),
@@ -84,7 +115,10 @@ fun DoctorDetailsContent(navigator: Navigator? = null) {
         ) {
 
             Spacer(modifier = Modifier.height(37.dp))
-            DoctorContactSection()
+            DoctorContactSection(
+                onClickChat = actions.onClickChat,
+                onClickVideoCall = actions.onClickVideoCall,
+                onClickVoiceCall = actions.onClickVoiceCall)
             DetailsDoctorSection()
             WorkerHoursSection()
             DatePicSection()
@@ -112,5 +146,11 @@ fun DoctorDetailsContent(navigator: Navigator? = null) {
 )
 @Composable
 fun DoctorDetailsPreview() {
-    DoctorDetailsContent()
+    val actions = DoctorDetailsScreenActions(
+        onClickVoiceCall = {},
+        onClickVideoCall = {},
+        onClickChat = {},
+        onBackClick = {}
+    )
+    DoctorDetailsContent(actions)
 }

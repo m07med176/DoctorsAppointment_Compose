@@ -45,13 +45,15 @@ import com.biteam.dataElTogar.R
 import com.biteam.dataElTogar.presentation.composable.SmallButton
 import com.biteam.dataElTogar.presentation.composable.TextBody2
 import com.biteam.dataElTogar.presentation.composable.TextHead3
+import com.biteam.dataElTogar.presentation.features.dashboard.listContent.DoctorModel
 import com.biteam.dataElTogar.presentation.features.dashboard.listContent.LazyDoctorItems
 import com.biteam.dataElTogar.presentation.theme.SystemColor
 import com.biteam.dataElTogar.presentation.theme.bodyMedium
 import com.biteam.dataElTogar.presentation.theme.headlineSmall
+import com.biteam.dataElTogar.presentation.utils.ClickBookItem
 
 @Composable
-fun DoctorsSection(seeAllDoctors:()-> Unit) {
+fun DoctorsSection(seeAllDoctors:()-> Unit,onClickBookItem:ClickBookItem) {
         Spacer(modifier = Modifier.height(35.dp))
         Row {
             Text(text = "All Doctors", style = headlineSmall)
@@ -67,7 +69,7 @@ fun DoctorsSection(seeAllDoctors:()-> Unit) {
 
         Spacer(modifier = Modifier.height(28.dp))
 
-        LazyDoctorItems()
+        LazyDoctorItems(modifier = Modifier.height(300.dp), onClickBookItem = onClickBookItem)
 
 }
 

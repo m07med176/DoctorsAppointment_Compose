@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
@@ -19,7 +18,6 @@ import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.navigator.LocalNavigator
-import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions
@@ -30,6 +28,7 @@ import com.biteam.dataElTogar.presentation.features.dashboard.sections.CategoryS
 import com.biteam.dataElTogar.presentation.features.dashboard.sections.DoctorsSection
 import com.biteam.dataElTogar.presentation.features.dashboard.sections.SearchSection
 import com.biteam.dataElTogar.presentation.features.dashboard.sections.TopSection
+import com.biteam.dataElTogar.presentation.utils.ClickBookItem
 
 
 object DashboardScreen : Tab {
@@ -51,30 +50,37 @@ object DashboardScreen : Tab {
     @Composable
     override fun Content() {
         val navigator = LocalNavigator.currentOrThrow
-        DashboardContent(navigator)
+        DashboardContent(
+            onClickSeeAllDoctorSection = { navigator.parent?.push(DoctorsScreen) },
+            onClickBookItem = {
+                navigator.parent?.push(DoctorDetailsScreen(doctorModel = it))
+        })
     }
 }
 
 
 @Composable
-fun DashboardContent(navigator: Navigator? = null) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(start = 26.dp, end = 26.dp).verticalScroll(rememberScrollState()),
-            verticalArrangement = Arrangement.Top,
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            TopSection()
-            SearchSection()
-            AdsSection()
-            CategorySection()
-            DoctorsSection {
-                navigator?.parent?.push(DoctorsScreen)
-            }
-           Spacer(modifier = Modifier.height(NAVIGATION_HEIGHT))
-        }
+fun DashboardContent(onClickSeeAllDoctorSection: () -> Unit, onClickBookItem: ClickBookItem) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(start = 26.dp, end = 26.dp)
+            .verticalScroll(rememberScrollState()),
+        verticalArrangement = Arrangement.Top,
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        TopSection()
+        SearchSection()
+        AdsSection()
+        CategorySection()
+        DoctorsSection(seeAllDoctors = {
+            onClickSeeAllDoctorSection()
+
+        }, onClickBookItem = onClickBookItem)
+    }
+    Spacer(modifier = Modifier.height(NAVIGATION_HEIGHT))
 }
+
 
 @Preview(
     showSystemUi = true,
@@ -95,5 +101,10 @@ fun DashboardContent(navigator: Navigator? = null) {
 
 @Composable
 fun DashboardPreview() {
-    DashboardContent()
+    DashboardContent(
+        onClickSeeAllDoctorSection = {
+        },
+        onClickBookItem = {
+        })
+
 }

@@ -41,10 +41,11 @@ import com.biteam.dataElTogar.presentation.composable.SmallButton
 import com.biteam.dataElTogar.presentation.composable.TextBody2
 import com.biteam.dataElTogar.presentation.composable.TextHead3
 import com.biteam.dataElTogar.presentation.theme.SystemColor
+import com.biteam.dataElTogar.presentation.utils.ClickBookItem
 
 
 @Composable
-fun DoctorItemCard(item: DoctorModel) {
+fun DoctorItemCard(item: DoctorModel,onClickBook:()->Unit) {
     var changeFavorite by remember {
         mutableStateOf(false)
     }
@@ -104,7 +105,7 @@ fun DoctorItemCard(item: DoctorModel) {
                         title = "Book", modifier = Modifier
                             .height(40.dp)
                     ) {
-
+                        onClickBook()
                     }
 
                     Spacer(modifier = Modifier.weight(1f))
@@ -138,13 +139,13 @@ data class DoctorModel(
 @Composable
 fun DoctorItemCardPreview() {
     Box(modifier = Modifier.height(250.dp)) {
-        DoctorItemCard(DoctorModel())
+        DoctorItemCard(DoctorModel()){}
     }
 
 }
 
 @Composable
-fun LazyDoctorItems() {
+fun LazyDoctorItems(modifier: Modifier = Modifier,onClickBookItem:ClickBookItem) {
     var itemsData: MutableList<DoctorModel> = mutableListOf<DoctorModel>().apply {
         repeat(10) {
             add(
@@ -154,9 +155,11 @@ fun LazyDoctorItems() {
             )
         }
     }
-    LazyColumn(modifier = Modifier.height(300.dp)){
+    LazyColumn(modifier = modifier){
         items(itemsData){
-            DoctorItemCard(it)
+            DoctorItemCard(it){
+                onClickBookItem(it)
+            }
         }
     }
 }
