@@ -2,16 +2,15 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.squareup.sqldelight'
-    id 'com.google.gms.google-services'
 
 }
 
 android {
-    namespace 'com.biteam.dataElTogar'
+    namespace 'com.biteam.mohamed'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.biteam.dataElTogar"
+        applicationId "com.biteam.mohamed"
         minSdk 24
         targetSdk 34
         versionCode 1
@@ -71,13 +70,7 @@ dependencies {
 
     implementation "androidx.compose.material:material:1.4.2"
 
-    // Firebase staff
-    implementation 'com.google.firebase:firebase-database:20.2.2'
-    implementation 'com.google.firebase:firebase-auth:22.1.1'
-    implementation 'com.google.android.gms:play-services-auth:20.6.0'
-    implementation 'com.google.firebase:firebase-analytics'
-    implementation platform('com.google.firebase:firebase-bom:28.0.1')
-    implementation 'com.google.firebase:firebase-firestore:24.7.0'
+
 
     // Fetch Url Images : https://github.com/Kamel-Media/Kamel
     implementation 'media.kamel:kamel-image:0.6.0'

@@ -16,4 +16,5 @@
     <string name="create_new_account">أنشىء حساب جديد</string>
     <string name="fullname">الإسم بالكامل</string>
     <string name="mobile_number">رقم التليفون</string>
+    <string name="enter_your_mobile_number">Enter your mobile number</string>
 </resources>
