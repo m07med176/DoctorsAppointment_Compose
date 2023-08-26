@@ -16,18 +16,19 @@ import androidx.compose.ui.unit.dp
 import com.biteam.dataElTogar.presentation.composable.TextFieldInput
 
 @Composable
-fun SearchSection() {
+fun SearchSection(title:String,modifier: Modifier = Modifier,onUserTyping:(String)->Unit) {
     var textState by remember {
         mutableStateOf("")
     }
-    Spacer(modifier = Modifier.height(30.dp))
+    Spacer(modifier = modifier.height(30.dp))
     Box {
         TextFieldInput(
             value = textState,
-            hint = "Search A Doctor",
+            hint = title,
             leadingIcon = Icons.Default.Search
         ) {
             textState = it
+            onUserTyping(textState)
         }
     }
 }

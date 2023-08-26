@@ -37,10 +37,9 @@ import com.biteam.dataElTogar.presentation.composable.MainButton
 import com.biteam.dataElTogar.presentation.composable.TextHead1
 import com.biteam.dataElTogar.presentation.composable.TextHead4
 import com.biteam.dataElTogar.presentation.features.HomeScreen
-import com.biteam.dataElTogar.presentation.theme.black
+import com.biteam.dataElTogar.presentation.theme.SystemColor
 import com.biteam.dataElTogar.presentation.theme.bodyMedium
 import com.biteam.dataElTogar.presentation.theme.headlineMedium
-import com.biteam.dataElTogar.presentation.theme.primary
 import dev.icerock.moko.mvvm.compose.getViewModel
 import dev.icerock.moko.mvvm.compose.viewModelFactory
 
@@ -169,7 +168,7 @@ fun LoginContent(onClickLogin: () -> Unit, onClickRegister: () -> Unit) {
                         style = TextStyle(
                             fontSize = 16.sp,
                             fontWeight = FontWeight(600),
-                            color = black,
+                            color = SystemColor.black,
                         )
                     )
                     TextButton(onClick = {
@@ -181,7 +180,7 @@ fun LoginContent(onClickLogin: () -> Unit, onClickRegister: () -> Unit) {
                             style = TextStyle(
                                 fontSize = 16.sp,
                                 fontWeight = FontWeight(600),
-                                color = primary,
+                                color = SystemColor.primary,
                             )
                         )
                     }

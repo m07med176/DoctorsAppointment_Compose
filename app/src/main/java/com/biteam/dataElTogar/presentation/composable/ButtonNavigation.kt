@@ -36,7 +36,7 @@ import com.biteam.dataElTogar.presentation.features.appointment.AppointmentScree
 import com.biteam.dataElTogar.presentation.features.chat.ChatScreen
 import com.biteam.dataElTogar.presentation.features.dashboard.DashboardScreen
 import com.biteam.dataElTogar.presentation.features.profile.ProfileScreen
-import com.biteam.dataElTogar.presentation.theme.primary
+import com.biteam.dataElTogar.presentation.theme.SystemColor
 
 val NAVIGATION_HEIGHT = 83.dp
 
@@ -113,7 +113,7 @@ private fun RowScope.TabNavigationItemPreview(image: Painter, title:String, sele
         modifier = Modifier
             .padding(13.dp)
             .background(
-                color = if (selected) primary else Color.White ,
+                color = if (selected) SystemColor.primary else Color.White ,
                 shape = RoundedCornerShape(size = 10.dp)
             )
 

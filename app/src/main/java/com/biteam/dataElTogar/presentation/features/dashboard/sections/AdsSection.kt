@@ -26,7 +26,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.biteam.dataElTogar.R
 import com.biteam.dataElTogar.presentation.theme.SystemColor
-import com.biteam.dataElTogar.presentation.theme.primary
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
 import kotlinx.coroutines.delay
@@ -54,7 +53,7 @@ fun AdsSection() {
             modifier = Modifier
                 .fillMaxWidth()
                 .height(169.dp)
-                .background(color = primary, shape = RoundedCornerShape(size = 10.dp))
+                .background(color = SystemColor.primary, shape = RoundedCornerShape(size = 10.dp))
         )
     }
 
@@ -69,7 +68,7 @@ fun AdsSection() {
                     .padding(1.dp)
                     .size(10.dp)
                     .background(
-                        color = if (pagerState.currentPage == it) primary else SystemColor.backgroundGray,
+                        color = if (pagerState.currentPage == it) SystemColor.primary else SystemColor.backgroundGray,
                         shape = CircleShape
                     )
                     .padding(7.dp)

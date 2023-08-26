@@ -37,12 +37,7 @@ import com.biteam.dataElTogar.presentation.composable.Input
 import com.biteam.dataElTogar.presentation.composable.MainButton
 import com.biteam.dataElTogar.presentation.composable.TextHead1
 import com.biteam.dataElTogar.presentation.features.HomeScreen
-import com.biteam.dataElTogar.presentation.theme.black
-import com.biteam.dataElTogar.presentation.theme.primary
-import com.biteam.dataElTogar.presentation.theme.titleLarge
-import com.biteam.dataElTogar.presentation.theme.titleSmall
-import dev.icerock.moko.mvvm.compose.getViewModel
-import dev.icerock.moko.mvvm.compose.viewModelFactory
+import com.biteam.dataElTogar.presentation.theme.SystemColor
 
 object RegisterScreen : Screen {
 
@@ -164,7 +159,7 @@ fun RegisterContent(navigator: Navigator? = null) {
                         style = TextStyle(
                             fontSize = 16.sp,
                             fontWeight = FontWeight(600),
-                            color = black,
+                            color = SystemColor.black,
                         )
                     )
                     TextButton(onClick = {
@@ -175,7 +170,7 @@ fun RegisterContent(navigator: Navigator? = null) {
                             style = TextStyle(
                                 fontSize = 16.sp,
                                 fontWeight = FontWeight(600),
-                                color = primary,
+                                color = SystemColor.primary,
                             )
                         )
                     }

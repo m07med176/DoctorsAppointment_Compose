@@ -60,7 +60,7 @@ val titleLarge = TextStyle(
 fontSize = 26.sp,
 lineHeight = 26.sp,
 fontWeight = FontWeight(700),
-color = primary,
+color = SystemColor.primary,
 textAlign = TextAlign.Center,
 )
 
@@ -68,5 +68,5 @@ val headlineLarge = TextStyle(
 fontSize = 70.sp,
 lineHeight = 70.sp,
 fontWeight = FontWeight(600),
-    color = primary,
+    color = SystemColor.primary,
 )

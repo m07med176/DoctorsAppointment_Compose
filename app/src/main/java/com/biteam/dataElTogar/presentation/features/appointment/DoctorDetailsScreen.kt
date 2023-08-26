@@ -1,4 +1,4 @@
-package com.biteam.dataElTogar.presentation.features.dashboard
+package com.biteam.dataElTogar.presentation.features.appointment
 
 import android.annotation.SuppressLint
 import android.content.res.Configuration
@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -28,12 +29,14 @@ import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import com.biteam.dataElTogar.R
+import com.biteam.dataElTogar.presentation.components.CustomAppBar
+import com.biteam.dataElTogar.presentation.composable.MainButton
 import com.biteam.dataElTogar.presentation.composable.TextHead1
 import com.biteam.dataElTogar.presentation.features.dashboard.listContent.DoctorModel
-import com.biteam.dataElTogar.presentation.features.dashboard.sections.DatePicSection
-import com.biteam.dataElTogar.presentation.features.dashboard.sections.DetailsDoctorSection
-import com.biteam.dataElTogar.presentation.features.dashboard.sections.DoctorContactSection
-import com.biteam.dataElTogar.presentation.features.dashboard.sections.WorkerHoursSection
+import com.biteam.dataElTogar.presentation.features.appointment.sections.DatePicSection
+import com.biteam.dataElTogar.presentation.features.appointment.sections.DetailsDoctorSection
+import com.biteam.dataElTogar.presentation.features.appointment.sections.DoctorContactSection
+import com.biteam.dataElTogar.presentation.features.appointment.sections.WorkerHoursSection
 import com.biteam.dataElTogar.presentation.utils.SimpleClick
 
 data class DoctorDetailsScreenActions(
@@ -65,15 +68,14 @@ data class DoctorDetailsScreen(private val doctorModel: DoctorModel) : Screen {
     private fun onClickVoiceCall() {
 
     }
+
     private fun onClickVideoCall() {
 
     }
+
     private fun onClickChat() {
 
     }
-
-
-
 
 
 }
@@ -83,24 +85,8 @@ data class DoctorDetailsScreen(private val doctorModel: DoctorModel) : Screen {
 @Composable
 fun DoctorDetailsContent(actions: DoctorDetailsScreenActions) {
     Scaffold(topBar = {
-        TopAppBar(
-            backgroundColor = Color.Transparent,
-            elevation = 0.dp
-        ) {
-
-            IconButton(onClick = actions.onBackClick) {
-                Icon(
-                    modifier = Modifier.size(20.dp),
-                    painter = painterResource(id = R.drawable.back_icon),
-                    contentDescription = null
-                )
-            }
-
-            Box(modifier = Modifier.weight(1f), contentAlignment = Alignment.Center) {
-                TextHead1(text = "Appointment")
-            }
-
-
+        CustomAppBar(title = "Appointment") {
+            actions.onBackClick()
         }
     })
     {
@@ -118,11 +104,25 @@ fun DoctorDetailsContent(actions: DoctorDetailsScreenActions) {
             DoctorContactSection(
                 onClickChat = actions.onClickChat,
                 onClickVideoCall = actions.onClickVideoCall,
-                onClickVoiceCall = actions.onClickVoiceCall)
+                onClickVoiceCall = actions.onClickVoiceCall
+            )
+            Spacer(modifier = Modifier.height(45.dp))
             DetailsDoctorSection()
-            WorkerHoursSection()
-            DatePicSection()
+            Spacer(modifier = Modifier.height(45.dp))
+            WorkerHoursSection{
 
+            }
+            DatePicSection{
+
+            }
+
+            Spacer(modifier = Modifier.weight(1f))
+
+            MainButton(title = "Book an Appointment", modifier = Modifier.fillMaxWidth()) {
+
+            }
+
+            Spacer(modifier = Modifier.height(25.dp))
         }
     }
 
@@ -154,3 +154,4 @@ fun DoctorDetailsPreview() {
     )
     DoctorDetailsContent(actions)
 }
+

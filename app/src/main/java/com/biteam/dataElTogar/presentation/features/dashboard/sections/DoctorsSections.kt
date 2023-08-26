@@ -42,6 +42,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.biteam.dataElTogar.R
+import com.biteam.dataElTogar.presentation.components.SeeAllWithTitle
 import com.biteam.dataElTogar.presentation.composable.SmallButton
 import com.biteam.dataElTogar.presentation.composable.TextBody2
 import com.biteam.dataElTogar.presentation.composable.TextHead3
@@ -53,23 +54,15 @@ import com.biteam.dataElTogar.presentation.theme.headlineSmall
 import com.biteam.dataElTogar.presentation.utils.ClickBookItem
 
 @Composable
-fun DoctorsSection(seeAllDoctors:()-> Unit,onClickBookItem:ClickBookItem) {
-        Spacer(modifier = Modifier.height(35.dp))
-        Row {
-            Text(text = "All Doctors", style = headlineSmall)
-            Spacer(modifier = Modifier.weight(1f))
-            TextButton(onClick = {seeAllDoctors()}) {
-                Text(
-                    text = "See All", style = bodyMedium, textAlign = TextAlign.Start
-                )
-            }
+fun DoctorsSection(seeAllDoctors: () -> Unit, onClickBookItem: ClickBookItem) {
+    Spacer(modifier = Modifier.height(35.dp))
 
+    SeeAllWithTitle("All Doctors") {
 
-        }
+    }
+    Spacer(modifier = Modifier.height(28.dp))
 
-        Spacer(modifier = Modifier.height(28.dp))
-
-        LazyDoctorItems(modifier = Modifier.height(300.dp), onClickBookItem = onClickBookItem)
+    LazyDoctorItems(modifier = Modifier.height(300.dp), onClickBookItem = onClickBookItem)
 
 }
 

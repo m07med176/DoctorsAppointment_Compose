@@ -109,6 +109,9 @@ dependencies {
 
     // Accompanist
     implementation 'com.google.accompanist:accompanist-pager:0.31.6-rc'
+    implementation "com.google.accompanist:accompanist-insets:0.31.5-beta"
+    // If using insets-ui
+    implementation "com.google.accompanist:accompanist-insets-ui:0.31.5-beta"
 
 
 }

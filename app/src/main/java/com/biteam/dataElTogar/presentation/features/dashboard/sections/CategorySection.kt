@@ -25,27 +25,16 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.biteam.dataElTogar.R
+import com.biteam.dataElTogar.presentation.components.SeeAllWithTitle
 import com.biteam.dataElTogar.presentation.theme.SystemColor
 import com.biteam.dataElTogar.presentation.theme.bodyMedium
 import com.biteam.dataElTogar.presentation.theme.headlineSmall
-import com.biteam.dataElTogar.presentation.theme.secondary
 
 @Composable
 fun CategorySection() {
     Column {
-        Row {
+        SeeAllWithTitle("Categories"){
 
-            Text(text = "Categories", style = headlineSmall)
-
-            Spacer(modifier = Modifier.weight(1f))
-
-            TextButton(onClick = {}) {
-                Text(
-                    text = "See All",
-                    style = bodyMedium,
-                    textAlign = TextAlign.Start
-                )
-            }
         }
 
 
@@ -60,7 +49,7 @@ fun CategorySection() {
                         .width(149.dp)
                         .height(82.dp)
                         .background(
-                            color = secondary,
+                            color = SystemColor.secondary,
                             shape = RoundedCornerShape(size = 10.dp)
                         )
                         .padding(start = 29.dp, top = 30.dp, end = 29.dp, bottom = 30.dp)

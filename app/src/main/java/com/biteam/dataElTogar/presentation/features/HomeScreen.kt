@@ -30,7 +30,6 @@ import cafe.adriel.voyager.navigator.currentOrThrow
 import cafe.adriel.voyager.navigator.tab.CurrentTab
 import cafe.adriel.voyager.navigator.tab.TabNavigator
 import com.biteam.dataElTogar.presentation.composable.ButtonNavigation
-import com.biteam.dataElTogar.presentation.features.areasManagement.AreasScreen
 import com.biteam.dataElTogar.presentation.features.dashboard.DashboardScreen
 
 object HomeScreen :Screen{
@@ -74,24 +73,6 @@ private fun AppDropMenu(navigator: Navigator) {
                 imageVector = Icons.Default.MoreVert,
                 contentDescription = "More"
             )
-        }
-
-
-        DropdownMenu(
-            expanded = expanded,
-            onDismissRequest = { expanded = false }
-        ) {
-            DropdownMenuItem(
-                onClick = {
-                    navigator.push(AreasScreen)
-                },
-                content = { Text(text = "المناطق") }
-            )
-            DropdownMenuItem(
-                onClick = { Toast.makeText(context, "Load", Toast.LENGTH_SHORT).show() },
-                content = { Text(text = "خروج") }
-            )
-
         }
 
 

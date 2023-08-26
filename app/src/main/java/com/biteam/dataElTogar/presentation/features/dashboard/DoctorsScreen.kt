@@ -28,7 +28,9 @@ import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import com.biteam.dataElTogar.R
+import com.biteam.dataElTogar.presentation.components.CustomAppBar
 import com.biteam.dataElTogar.presentation.composable.TextHead1
+import com.biteam.dataElTogar.presentation.features.appointment.DoctorDetailsScreen
 import com.biteam.dataElTogar.presentation.features.dashboard.listContent.LazyDoctorItems
 import com.biteam.dataElTogar.presentation.features.dashboard.sections.SearchSection
 import com.biteam.dataElTogar.presentation.utils.ClickBookItem
@@ -53,24 +55,8 @@ object DoctorsScreen : Screen {
 fun DoctorsContent(onClickBackBtn: SimpleClick, onClickDoctorModel: ClickBookItem) {
     Scaffold(
         topBar = {
-            TopAppBar(
-                backgroundColor = Color.Transparent,
-                elevation = 0.dp
-            ) {
-
-                IconButton(onClick = { onClickBackBtn() }) {
-                    Icon(
-                        modifier = Modifier.size(20.dp),
-                        painter = painterResource(id = R.drawable.back_icon),
-                        contentDescription = null
-                    )
-                }
-
-                Box(modifier = Modifier.weight(1f), contentAlignment = Alignment.Center) {
-                    TextHead1(text = "All Doctors")
-                }
-
-
+            CustomAppBar(title = "All Doctors") {
+                onClickBackBtn()
             }
         })
     {
@@ -85,7 +71,9 @@ fun DoctorsContent(onClickBackBtn: SimpleClick, onClickDoctorModel: ClickBookIte
         ) {
 
             Spacer(modifier = Modifier.height(21.dp))
-            SearchSection()
+            SearchSection(title = "Search A Doctor"){
+
+            }
             Spacer(modifier = Modifier.height(30.dp))
             LazyDoctorItems(modifier = Modifier.weight(1f), onClickBookItem = onClickDoctorModel)
 

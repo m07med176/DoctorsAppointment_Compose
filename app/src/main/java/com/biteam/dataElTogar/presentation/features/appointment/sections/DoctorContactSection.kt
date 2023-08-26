@@ -1,4 +1,4 @@
-package com.biteam.dataElTogar.presentation.features.dashboard.sections
+package com.biteam.dataElTogar.presentation.features.appointment.sections
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
@@ -35,8 +35,7 @@ import androidx.compose.ui.unit.sp
 import com.biteam.dataElTogar.R
 import com.biteam.dataElTogar.presentation.composable.TextHead3
 import com.biteam.dataElTogar.presentation.composable.TextHead4
-import com.biteam.dataElTogar.presentation.theme.primary
-import com.biteam.dataElTogar.presentation.theme.secondary
+import com.biteam.dataElTogar.presentation.theme.SystemColor
 import com.biteam.dataElTogar.presentation.utils.SimpleClick
 
 @Composable
@@ -58,7 +57,7 @@ fun DoctorContactSection(
             Modifier
                 .border(
                     width = 1.dp,
-                    color = primary,
+                    color = SystemColor.primary,
                     shape = RoundedCornerShape(size = 10.dp)
                 )
                 .size(132.dp)
@@ -89,18 +88,18 @@ fun DoctorContactSection(
                     fontSize = 16.sp,
                     lineHeight = 16.sp,
                     fontWeight = FontWeight(600),
-                    color = Color(0xFF7BC1B7),
+                    color = SystemColor.primary,
                 )
             )
 
-            Spacer(modifier = Modifier.weight(1f))
+            Spacer(modifier = Modifier.weight(0.5f))
             Row {
                 TextHead4(
                     text = "Payment",
                 )
 
-                Spacer(modifier = Modifier.height(32.dp))
-                TextHead3(text = "$120.00", color = secondary)
+                Spacer(modifier = Modifier.weight(1f))
+                TextHead3(text = "$120.00", color = SystemColor.secondary)
             }
         }
     }
@@ -123,7 +122,7 @@ fun DoctorContactPreview() {
 fun ButtonImageHolderDoctorProfile(@DrawableRes drawableID: Int, simpleClick: SimpleClick) {
     Box(
         modifier = Modifier
-            .background(color = secondary, shape = CircleShape)
+            .background(color = SystemColor.backgroundGray, shape = CircleShape)
             .size(30.dp),
         contentAlignment = Alignment.Center
 

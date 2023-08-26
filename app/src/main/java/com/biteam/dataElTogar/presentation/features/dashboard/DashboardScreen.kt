@@ -23,6 +23,7 @@ import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions
 import com.biteam.dataElTogar.R
 import com.biteam.dataElTogar.presentation.composable.NAVIGATION_HEIGHT
+import com.biteam.dataElTogar.presentation.features.appointment.DoctorDetailsScreen
 import com.biteam.dataElTogar.presentation.features.dashboard.sections.AdsSection
 import com.biteam.dataElTogar.presentation.features.dashboard.sections.CategorySection
 import com.biteam.dataElTogar.presentation.features.dashboard.sections.DoctorsSection
@@ -70,7 +71,9 @@ fun DashboardContent(onClickSeeAllDoctorSection: () -> Unit, onClickBookItem: Cl
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         TopSection()
-        SearchSection()
+        SearchSection(title = "Search a Doctor"){
+
+        }
         AdsSection()
         CategorySection()
         DoctorsSection(seeAllDoctors = {
